@@ -1,7 +1,10 @@
+# ViT ImageNet-21K-P
 
-# ImageNet-21K Preprocessing Project
+## ImageNet-21K Preprocessing
 
-This repository contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `.tar` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository. Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the masses" by Tal Ridnik, Emanuel Ben-Baruch, Asaf Noy, Lihi Zelnik-Manor, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
+This repository contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `.tar` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository.
+
+Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
 
 ## Overview
 

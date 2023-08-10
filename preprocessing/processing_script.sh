@@ -57,4 +57,6 @@ done
 
 
 # resizing
-python3 resize.py
+python resize.py
+python pickle_resized_images.py
+python validating_files.py
