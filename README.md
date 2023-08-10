@@ -14,6 +14,15 @@ The `preprocessing` directory contains the code and scripts required to preproce
 
 Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
 
+### Models
+
+The `models` directory contains the Python implementations of various neural network architectures that are utilized in the project:
+
+- **Vision Transformer (ViT)**: Implementation of the Vision Transformer, a cutting-edge model designed to leverage the large and diverse ImageNet-21K dataset for state-of-the-art performance in computer vision tasks.
+- **Other Models**: This directory may also include additional models and variations that are explored or customized for specific applications within the project.
+
+These models form the core of the training and evaluation stages, providing flexibility and modularity for experimenting with different approaches and techniques.
+
 ### Resources
 
 The `resources` directory contains serialized indices of the datasets, enabling efficient referencing of images and classes.
