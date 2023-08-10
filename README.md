@@ -1,8 +1,12 @@
-# ViT ImageNet-21K-P
+# Vision Transformers with ImageNet-21K-P
 
 ## Overview
 
-This repository is part of an ambitious project aiming to explore computer vision at scale by utilizing the extensive ImageNet-21K dataset. Currently, the repository contains code and scripts for preprocessing the dataset, transforming it from the original 1.3TB .tar file into a resized and indexed version. The project's next stage involves training a Vision Transformer (ViT) on the processed ImageNet-21K dataset. The goal is to leverage the large and diverse dataset to learn about non-trivial applications of computer vision. 
+This project aims to explore computer vision at scale by utilizing the massive ImageNet-21K dataset. The goal is to leverage this large and diverse dataset to learn about non-trivial applications of computer vision at scale. 
+
+Currently, the repository contains code and scripts for preprocessing the dataset, transforming it from the original 1.3TB .tar file into an organized, resized, and indexed version.
+
+The project's next stage involves training a Vision Transformer (ViT) on the processed ImageNet-21K dataset.
 
 ### Preprocessing
 
