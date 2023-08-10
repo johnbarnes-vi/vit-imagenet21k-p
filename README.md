@@ -1,18 +1,14 @@
 # ViT ImageNet-21K-P
 
-## ImageNet-21K Preprocessing
-
-This repository contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `.tar` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository.
-
-Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
-
 ## Overview
 
-The project focuses on a series of preprocessing steps to handle the ImageNet-21K dataset, transforming it from a single `.tar` file to a resized, indexed version with a serialized index.
+This repository is part of an ambitious project aiming to explore computer vision at scale by utilizing the extensive ImageNet-21K dataset. Currently, the repository contains code and scripts for preprocessing the dataset, transforming it from the original 1.3TB .tar file into a resized and indexed version. The project's next stage involves training a Vision Transformer (ViT) on the processed ImageNet-21K dataset. The goal is to leverage the large and diverse dataset to learn about non-trivial applications of computer vision. 
 
 ### Preprocessing
 
-The `preprocessing` directory contains the scripts to handle the stages of extraction, organization, resizing, and indexing.
+The `preprocessing` directory contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `.tar` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository.
+
+Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
 
 ### Resources
 
