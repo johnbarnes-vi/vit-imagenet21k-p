@@ -8,12 +8,6 @@ Currently, the repository contains code and scripts for preprocessing the datase
 
 The project's next stage involves training a Vision Transformer (ViT) on the processed ImageNet-21K dataset.
 
-### Preprocessing
-
-The `preprocessing` directory contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `winter21_whole.tar.gz` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository.
-
-Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
-
 ### Models
 
 The `models` directory contains the Python implementations of various neural network architectures that are utilized in the project:
@@ -22,6 +16,12 @@ The `models` directory contains the Python implementations of various neural net
 - **Other Models**: This directory may also include additional models and variations that are explored or customized for specific applications within the project.
 
 These models form the core of the training and evaluation stages, providing flexibility and modularity for experimenting with different approaches and techniques.
+
+### Preprocessing
+
+The `preprocessing` directory contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `winter21_whole.tar.gz` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository.
+
+Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
 
 ### Resources
 
