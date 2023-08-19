@@ -19,9 +19,12 @@ These models form the core of the training and evaluation stages, providing flex
 
 ### Preprocessing
 
-The `preprocessing` directory contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `winter21_whole.tar.gz` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository.
+The `preprocessing21k` directory contains the code and scripts required to preprocess the ImageNet-21K dataset, starting from the original 1.3TB `winter21_whole.tar.gz` file downloaded from image-net.org. The preprocessing steps transform the dataset into a resized, indexed version, stored in the `/mnt/` directory, with a serialized index (pickled object mapping) in the actual project repository.
 
-Most of the preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
+Most of this ImageNet21k preprocessing code comes from the paper "ImageNet21k Pretraining for the Masses" by Tal Ridnik et al, with the exception of the `pickle_resized_images.py` script, which was authored as part of this project.
+
+There is also a `preprocessing1k` directory containing the code and scripts required to preprocess the ImageNet-1k dataset. However, this time we start with
+the unpacked files `ILSVRC2012_devkit_t12.tar.gz`, `ILSVRC2012_img_train.tar`, and `ILSVRC2012_img_val.tar` downloaded from image-net.org. Be sure to also unpack these files in the `/mnt/` directory.
 
 ### Resources
 
