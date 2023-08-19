@@ -36,7 +36,7 @@ Refer to the `requirements.txt` file for the dependencies required to run the pr
 
 ## Usage
 
-To run the preprocessing, simply execute the `processing21k.sh` and `processing1k` scripts. These scripts manages the entire preprocessing workflow, including extraction, organization, resizing, serialization, and validation.
+To run the preprocessing, simply execute the `processing21k.sh` and `processing1k` scripts. These scripts manage the entire preprocessing workflow, including extraction, organization, resizing, serialization, and validation.
 
 ```bash
 ./processing21k.sh
