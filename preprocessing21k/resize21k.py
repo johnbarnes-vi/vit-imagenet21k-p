@@ -6,7 +6,7 @@ import os
 import errno
 
 
-def resize_image(inputFileName, output_size=224, input_str='imagenet21k_new', output_str='imagenet21k_resized_new'):
+def resize_image(inputFileName, output_size=224, input_str='imagenet21k', output_str='imagenet21k_resized'):
     try:
         out_path = inputFileName.replace(input_str, output_str)
 
@@ -32,7 +32,7 @@ def resize_image(inputFileName, output_size=224, input_str='imagenet21k_new', ou
 
 
 def main():
-    path = '/mnt/imagenet21k_new/' # might need to edit this
+    path = '/mnt/imagenet21k/' # edit before use each time or parameterize this as a cmd-line argument
     import os
     from glob import glob
     print("scanning files...")
@@ -40,7 +40,7 @@ def main():
     print("done, start resizing")
 
     pool = ThreadPool(8)
-    resize_image_fun = partial(resize_image, input_str='imagenet21k_new', output_str='imagenet21k_resized_new')
+    resize_image_fun = partial(resize_image, input_str='imagenet21k', output_str='imagenet21k_resized')
     pool.map(resize_image_fun, files)
 
 

@@ -56,7 +56,7 @@ for i in ${ROOT}/n*; do
 done
 
 
-# resizing
-python resize.py
+# resizing, pickling an index, then validating the index
+python resize21k.py
 python pickle_resized_images.py
 python validating_files.py
