@@ -10,15 +10,17 @@ class ImagePreprocessor(nn.Module):
         self.patch_size = patch_size  # Size of each patch
 
     def forward(self, x):
-        # Reshape image into patches
-        # We are using unfold to break the image into patches.
-        # The unfold operation will take non-overlapping blocks of size patch_size x patch_size
+        # Dynamically get the batch size and channel dimensions
+        batch_size, channel, _, _ = x.size()
+
+        # Using unfold to create patches
         x_p = x.unfold(2, self.patch_size, self.patch_size).unfold(3, self.patch_size, self.patch_size)
-        
-        # Flattening patches
-        # We need to flatten the patches while keeping the batch and channel dimensions intact
-        # The view operation reshapes the tensor
-        x_p = x_p.contiguous().view(x_p.size(0), x_p.size(1), -1, x_p.size(4) * x_p.size(5))
+
+        # Reshape into the desired shape
+        x_p = x_p.permute(0, 2, 3, 1, 4, 5).contiguous()
+        x_p = x_p.view(batch_size, -1, self.patch_size * self.patch_size * channel)
+
+        # Now x_p should have shape [batch_size, (Height * Width) / (patch_size * patch_size), (patch_size * patch_size * channel)]
         
         return x_p
 
@@ -31,7 +33,7 @@ class PatchEmbedding(nn.Module):
 
     def forward(self, x_p):
         # Project patches to D dimensions
-        x_emb = self.linear(x_p.view(x_p.size(0), x_p.size(1), -1))  # Flattening to [batch, channel, features]
+        x_emb = self.linear(x_p)
         return x_emb
 
 # Class for adding a Class Token
@@ -97,7 +99,7 @@ class VisionTransformer(nn.Module):
     def __init__(self, patch_size, D, num_layers, num_classes):
         super(VisionTransformer, self).__init__()
         self.image_preprocessor = ImagePreprocessor(patch_size)
-        self.patch_embedding = PatchEmbedding(patch_size * patch_size, D)  # 3 channels, patch_size x patch_size patches
+        self.patch_embedding = PatchEmbedding(patch_size * patch_size * 3, D)  # 3 channels, patch_size x patch_size patches
         self.class_token = ClassToken(D)
         self.position_embedding = PositionEmbedding(197, D)  # 196 patches + 1 class token
         self.transformer_encoder = TransformerEncoder(D, num_layers)
