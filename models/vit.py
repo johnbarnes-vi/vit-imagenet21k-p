@@ -62,15 +62,15 @@ class PositionEmbedding(nn.Module):
 
 # Class for Transformer Encoder
 class TransformerEncoder(nn.Module):
-    def __init__(self, D, num_layers):
+    def __init__(self, D, num_layers, num_heads, mlp_size):
         super(TransformerEncoder, self).__init__()
         self.num_layers = num_layers
         self.layer_norm = nn.LayerNorm(D)
-        self.multihead_attention = nn.MultiheadAttention(D, num_heads=4, batch_first=True)
+        self.multihead_attention = nn.MultiheadAttention(D, num_heads=num_heads, batch_first=True)
         self.mlp = nn.Sequential(
-            nn.Linear(D, D),
+            nn.Linear(D, mlp_size),
             nn.GELU(),
-            nn.Linear(D, D)
+            nn.Linear(mlp_size, D)
         )
 
     def forward(self, x_pos):
@@ -96,13 +96,13 @@ class ClassificationHead(nn.Module):
 
 # Main Vision Transformer Class
 class VisionTransformer(nn.Module):
-    def __init__(self, patch_size, D, num_layers, num_classes):
+    def __init__(self, patch_size, D, num_layers, num_classes, num_heads, mlp_size):
         super(VisionTransformer, self).__init__()
         self.image_preprocessor = ImagePreprocessor(patch_size)
         self.patch_embedding = PatchEmbedding(patch_size * patch_size * 3, D)  # 3 channels, patch_size x patch_size patches
         self.class_token = ClassToken(D)
-        self.position_embedding = PositionEmbedding(197, D)  # 196 patches + 1 class token
-        self.transformer_encoder = TransformerEncoder(D, num_layers)
+        self.position_embedding = PositionEmbedding( ((224*224)//(patch_size*patch_size)) + 1 , D)  # 196 patches + 1 class token
+        self.transformer_encoder = TransformerEncoder(D, num_layers, num_heads, mlp_size)
         self.classification_head = ClassificationHead(D, num_classes)
 
     def forward(self, x):
