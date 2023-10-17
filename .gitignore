@@ -1,4 +1,5 @@
 vit21k_env/
 *.pyc
 *.code-workspace
+*.pth
 __pycache__/

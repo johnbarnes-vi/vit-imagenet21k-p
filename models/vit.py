@@ -66,7 +66,7 @@ class TransformerEncoder(nn.Module):
         super(TransformerEncoder, self).__init__()
         self.num_layers = num_layers
         self.layer_norm = nn.LayerNorm(D)
-        self.multihead_attention = nn.MultiheadAttention(D, num_heads=4)
+        self.multihead_attention = nn.MultiheadAttention(D, num_heads=4, batch_first=True)
         self.mlp = nn.Sequential(
             nn.Linear(D, D),
             nn.GELU(),
